@@ -1,0 +1,19 @@
+section{
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 5px;
+
+}
+.kihara{
+    width: 60%;
+    text-align: center;
+}
+.dolly{
+display: flex;
+gap: 15px;
+}
+.mojica{
+ text-align: justify;
+    font-size: 20px;
+}

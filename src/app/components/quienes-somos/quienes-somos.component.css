@@ -1,0 +1,32 @@
+section{
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    box-sizing:border-box;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+
+}
+.litigio{
+padding: 20px 0;
+
+}
+.litigio img{
+    width: 400px;
+    object-fit: cover;
+
+
+}
+.feminista h2{
+    font-size: 50px; 
+
+}
+.feminista p{
+    font-size: 15px;
+    line-height: 3;
+    text-align: justify;
+}
