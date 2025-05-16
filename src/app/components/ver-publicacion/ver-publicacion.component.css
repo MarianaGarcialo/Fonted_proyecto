@@ -1,19 +1,43 @@
-section{
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    padding: 5px;
+    section {
+        width: 100%;
+        box-sizing: content-box;
+        overflow: hidden;
+        margin: 20px 0;
 
-}
-.kihara{
-    width: 60%;
-    text-align: center;
-}
-.dolly{
-display: flex;
-gap: 15px;
-}
-.mojica{
- text-align: justify;
-    font-size: 20px;
-}
+    }
+
+    .kihara {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tommy{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .dolly {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mojica {
+        text-align: justify;
+        font-size: 20px;
+        width: 90%;
+    }
+    .referens{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: wrap row;
+        gap: 20px;
+    }
+.kitbutousqui{
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    }

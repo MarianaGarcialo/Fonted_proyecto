@@ -5,10 +5,10 @@ section{
     display: flex;
     flex-direction: row;
     gap: 30px;
-    box-sizing:border-box;
+    box-sizing:content-box;
     overflow:hidden;
     justify-content: center;
-    align-items: center;
+  
 
 }
 .litigio{
@@ -16,8 +16,9 @@ padding: 20px 0;
 
 }
 .litigio img{
-    width: 400px;
+    width: clamp(250px, 50vw, 350px);
     object-fit: cover;
+    
 
 
 }
@@ -27,6 +28,32 @@ padding: 20px 0;
 }
 .feminista p{
     font-size: 15px;
-    line-height: 3;
+    line-height: 2.5;
+    text-align: justify;
+   
+}
+.gogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--c1);
+}
+.aguacero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--c1);
+}
+.medusas{
+    flex-flow: row wrap;
+}
+.amarillo{
+    font-size: 50px;
+}
+.amarillo p{
+    font-size: 15px;
+    line-height: 2.5;
     text-align: justify;
 }

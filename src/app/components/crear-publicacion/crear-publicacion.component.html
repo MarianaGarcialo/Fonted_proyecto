@@ -1,0 +1,37 @@
+<section>
+    <div class="plazacesamo">
+        <h1>Creación de Publicaciones</h1>
+    </div>
+    <form action="" (submit)="postPublicacion()" [formGroup]="formPublicacion" class="Goku">
+        <div>
+            <label for="">Titulo</label>
+            <input formControlName="title" type="text">
+        </div>
+        <div>
+            <label for="">Descripción</label>
+            <textarea formControlName="descripcion" name="" id=""></textarea>
+        </div>
+        <div>
+            <label for="imagen">Imagen</label>
+            <input type="file" id="imagen" accept="image/*" (change)="onFileSelected($event)">
+          </div>
+          
+          <!-- Vista previa -->
+          <div *ngIf="imagenPreview">
+            <img [src]="imagenPreview" alt="Vista previa" class="preview" >
+          </div>
+          
+        <div>
+            <label for="">Enlaces</label>
+        <div id="contenedor-inputs">
+            
+        </div>
+        </div>
+        <Button class="lola" type="button" (click)=" aniadirenlace()">
+            Añadir
+        </Button>
+        <button class="flor" [disabled]="!formPublicacion.valid">
+            Crear Publicacion
+        </button>
+    </form>
+</section>
