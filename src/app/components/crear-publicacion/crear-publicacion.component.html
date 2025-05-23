@@ -14,22 +14,40 @@
         <div>
             <label for="imagen">Imagen</label>
             <input type="file" id="imagen" accept="image/*" (change)="onFileSelected($event)">
-          </div>
-          
-          <!-- Vista previa -->
-          <div *ngIf="imagenPreview">
-            <img [src]="imagenPreview" alt="Vista previa" class="preview" >
-          </div>
-          
-        <div>
-            <label for="">Enlaces</label>
-        <div id="contenedor-inputs">
-            
         </div>
+
+        <!-- Vista previa -->
+        <div *ngIf="imagenPreview">
+            <img [src]="imagenPreview" alt="Vista previa" class="preview">
         </div>
-        <Button class="lola" type="button" (click)=" aniadirenlace()">
-            Añadir
-        </Button>
+
+<!-- Enlaces -->
+<div>
+  <label>Enlaces</label>
+  <div id="contenedor-inputs">
+    <input *ngFor="let enlace of enlaces; let i = index"
+           name="enlace{{i}}"
+           placeholder="Enlace #{{i + 1}}"
+           class="input-dinamico" />
+  </div>
+</div>
+
+<!-- Autores -->
+<div>
+  <label>Autores</label>
+  <div id="contenedor-inputs-author">
+    <input *ngFor="let author of authors; let i = index"
+           name="author{{i}}"
+           placeholder="Autor #{{i + 1}}"
+           class="input-dinamico" />
+  </div>
+</div>
+
+
+<button type="button" (click)="aniadirenlace()">Añadir enlace</button>
+<button type="button" (click)="aniadirauthor()">Añadir autor</button>
+
+       
         <button class="flor" [disabled]="!formPublicacion.valid">
             Crear Publicacion
         </button>

@@ -21,16 +21,29 @@ export class PublicacionService {
     formData.append("title", publicacion.title || "");
     formData.append("descripcion", publicacion.descripcion || "");
     if (img) {
-      formData.append("img", img, img.name);
+      formData.append("file", img);
     }
     if (publicacion.enlaces && publicacion.enlaces.length > 0) {
       publicacion.enlaces.forEach((enlace) => {
         formData.append("enlaces[]", enlace);
       });
     }
-    formData.append("author", publicacion.author || "");
+    if (publicacion.authors && publicacion.authors.length > 0) {
+      publicacion.authors.forEach((author) => {
+        formData.append("authors[]", author);
+      });
+    }
+    formData.append("publicado_por", publicacion.publicado_por || "");
     return this.http.post(this.apiUrl, formData)
 
+  }
+
+  getPublicaciones(){
+    return this.http.get<Response<Publicacion[]>>(this.apiUrl)
+  }
+
+  getPublicacion(id:string){
+    return this.http.get<Response<Publicacion>>(this.apiUrl+`/${id}`)
   }
 
 }

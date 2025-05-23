@@ -1,21 +1,21 @@
 <div class="modal" id="modal">
-<div class="modalbox">
-  <div class="closemodal">
-<h2 (click)="cerrarModal()">X</h2>
+  <div class="modalbox">
+    <div class="closemodal">
+      <h2 (click)="cerrarModal()">X</h2>
+    </div>
+    <h2>Inicio de sesión</h2>
+    <form class="formlogin" (submit)="iniciarSesion()" [formGroup]="formlogin">
+      <div class="inputs">
+        <label for="">Correo Electronico</label>
+        <input formControlName="email" type="text">
+      </div>
+      <div class="inputs">
+        <label for="">Contraseña Global</label>
+        <input formControlName="password" type="password">
+      </div>
+      <button class="puños" [disabled]="!formlogin.valid">Iniciar Sesión</button>
+    </form>
   </div>
-<h2>Inicio de sesión</h2>
-<form class="formlogin">
-  <div class="inputs">
-    <label for="">Correo Electronico</label>
-    <input type="text">
-  </div>
-  <div class="inputs">
-    <label for="">Contraseña Global</label>
-    <input type="password">
-  </div>
-  <button class="puños">Iniciar Sesión</button>
-</form>
-</div>
 </div>
 
 
@@ -35,20 +35,18 @@
       <div class="barrita" (click)="enrutador('/Quienes_somos')">
         <h3>Quienes Somos</h3>
       </div>
-@if (user) {
-      <div class="barrita" (click)="abrirModal()">
-        <h3>Iniciar Sesión</h3>
-      </div>
+  <div *ngIf="!user" class="barrita" (click)="abrirModal()">
+    <h3>Iniciar Sesión</h3>
+  </div>
 
-       }@else {
-        <div class="barrita" (click)="enrutador('/crear_publicacion')">
-          <h3>Crear publicación</h3>
-        </div>
-        <div class="barrita" >
-          <h3>Cerrar Sesión</h3>
-        </div>
-       }
-      
+  <div *ngIf="user" class="barrita" (click)="enrutador('/crear_publicacion')">
+    <h3>Crear publicación</h3>
+  </div>
+  <div *ngIf="user" class="barrita" (click)="cerrarSesion()">
+    <h3>Cerrar Sesión</h3>
+  </div>
+ 
+
     </div>
   </nav>
   <div class="app">

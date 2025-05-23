@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 import { User } from './models/user';
@@ -12,12 +12,32 @@ import Swal from 'sweetalert2';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  user: User = new User()
+export class AppComponent implements OnInit{
+  title: string = "frontend"
+ user: User | null = null;
+
   constructor(private router: Router,
     private loginServices: LoginService
   ) {
 
+  }
+
+  ngOnInit(): void {
+    this.logged()
+  }
+cerrarSesion() {
+  localStorage.removeItem("user");
+  this.user = null;
+  window.location.reload(); // O usa router.navigate para redirigir a inicio
+}
+
+  logged(){
+let local = JSON.parse(localStorage.getItem("user") || "null")
+if (local){
+  this.user = local
+}else{
+
+}
   }
 
   enrutador(enlace: string) {
@@ -51,6 +71,7 @@ export class AppComponent {
     }
     this.loginServices.login(user).subscribe(res => {
       if (res) {
+        console.log(res)
         this.user = user
         localStorage.setItem("user", JSON.stringify(user));
         Swal.fire({
@@ -59,7 +80,7 @@ export class AppComponent {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         });
-
+window.location.reload()
       }
     }, err => {
       console.log(err)

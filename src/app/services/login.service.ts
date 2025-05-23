@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-readonly apiUrl=Environment.backendUrl+"user"
+readonly apiUrl=Environment.backendUrl+"login"
   constructor(private http:HttpClient) { }
 
   login(user:User){
-    return this.http.post(this.apiUrl,user)
+    return this.http.post(this.apiUrl + "/iniciar_sesion",user)
   }
 }

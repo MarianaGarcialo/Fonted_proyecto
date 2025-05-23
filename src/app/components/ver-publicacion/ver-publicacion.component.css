@@ -5,6 +5,9 @@
         margin: 20px 0;
 
     }
+.mojica p {
+  white-space: pre-wrap;
+}
 
     .kihara {
         width: 100%;
